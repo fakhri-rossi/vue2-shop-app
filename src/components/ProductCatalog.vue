@@ -11,7 +11,9 @@
             :key="item.id"
             :data-index="index">
             <div class="col-auto">
-                <button class="btn btn-info" @click.stop="$emit('add', item)">
+                <button
+                    class="btn btn-info"
+                    @click.stop="$emit('add-item', item)">
                     +
                 </button>
             </div>

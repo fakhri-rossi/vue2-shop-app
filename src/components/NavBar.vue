@@ -3,7 +3,7 @@
         <div class="navbar-text ms-auto d-flex me-3">
             <button
                 class="btn btn-sm btn-outline-success"
-                @click="$emit('toggle')">
+                @click="$emit('toggle-slide')">
                 <FontAwesomeIcon :icon="['fa', 'dollar-sign']" />
             </button>
 
@@ -46,7 +46,7 @@
                             <a
                                 href="#"
                                 class="badge bg-danger text-white text-decoration-none"
-                                @click.stop="$emit('delete', index)">
+                                @click.stop="$emit('delete-item', index)">
                                 -
                             </a>
                         </div>

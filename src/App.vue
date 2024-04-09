@@ -1,34 +1,23 @@
 <template>
     <div id="app" class="container mt-5">
-        <NavBar
+        <PageProducts
             :cart="cart"
             :cartQty="cartQty"
             :cartTotal="cartTotal"
-            @toggle="toggleSliderStatus"
-            @delete="deleteItem" />
-        <h1>My Shop</h1>
-        <PriceSlider :maximum.sync="maximum" :sliderStatus="sliderStatus" />
-        <ProductCatalog
+            :maximum.sync="maximum"
             :products="products"
-            :maximum="maximum"
-            @add="addItem" />
+            :sliderStatus="sliderStatus"
+            @toggle="toggleSliderStatus"
+            @add="addItem"
+            @delete="deleteItem" />
     </div>
 </template>
 
 <script>
-    import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
-    import ProductCatalog from "./components/ProductCatalog.vue";
-    import PriceSlider from "./components/PriceSlider.vue";
-    import NavBar from "./components/NavBar.vue";
+    import PageProducts from "./components/PageProducts.vue";
 
     export default {
         name: "App",
-        components: {
-            FontAwesomeIcon,
-            ProductCatalog,
-            PriceSlider,
-            NavBar,
-        },
         data: function () {
             return {
                 maximum: 3000,
@@ -36,6 +25,9 @@
                 cart: [],
                 sliderStatus: false,
             };
+        },
+        components: {
+            PageProducts,
         },
         mounted: function () {
             // fetch('https://hplussport.com/api/products/order/price')

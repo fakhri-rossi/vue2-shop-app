@@ -1,21 +1,19 @@
 <template>
     <div id="app" class="container mt-5">
-        <PageProducts
+        <router-view
             :cart="cart"
-            :cartQty="cartQty"
             :cartTotal="cartTotal"
+            @add="addItem"
+            @delete="deleteItem"
+            :cartQty="cartQty"
             :maximum.sync="maximum"
             :products="products"
             :sliderStatus="sliderStatus"
-            @toggle="toggleSliderStatus"
-            @add="addItem"
-            @delete="deleteItem" />
+            @toggle="toggleSliderStatus" />
     </div>
 </template>
 
 <script>
-    import PageProducts from "./components/PageProducts.vue";
-
     export default {
         name: "App",
         data: function () {
@@ -25,9 +23,6 @@
                 cart: [],
                 sliderStatus: false,
             };
-        },
-        components: {
-            PageProducts,
         },
         mounted: function () {
             // fetch('https://hplussport.com/api/products/order/price')
